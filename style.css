@@ -1,0 +1,728 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink: #ed6f91;
+    --dark-pink: #d9537d;
+    --light-pink: #fff2f5;
+    --cream: #fffaf7;
+    --dark: #31252a;
+    --gray: #786c70;
+    --white: #ffffff;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "DM Sans", sans-serif;
+    background:
+        radial-gradient(circle at top left, #ffe5eb, transparent 35%),
+        radial-gradient(circle at bottom right, #f9dde9, transparent 30%),
+        #fff9f6;
+
+    color: var(--dark);
+    overflow-x: hidden;
+}
+
+
+/* =========================
+    BACKGROUND SHAPES
+========================= */
+
+.background-shape {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(3px);
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.shape1 {
+    width: 300px;
+    height: 300px;
+    background: #ffd4e0;
+    left: -120px;
+    top: -100px;
+}
+
+.shape2 {
+    width: 350px;
+    height: 350px;
+    background: #ffe4d7;
+    right: -130px;
+    bottom: -130px;
+}
+
+
+/* =========================
+    MAIN APP
+========================= */
+
+.app {
+    min-height: 100vh;
+    position: relative;
+    z-index: 2;
+}
+
+.page {
+    min-height: 100vh;
+    width: 100%;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px 20px;
+
+    animation: fadeIn 0.5s ease;
+}
+
+.page.active {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+    CARD
+========================= */
+
+.card {
+    width: 100%;
+    max-width: 700px;
+
+    background: rgba(255, 255, 255, 0.88);
+
+    backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    border-radius: 32px;
+
+    padding: 55px;
+
+    text-align: center;
+
+    box-shadow:
+        0 30px 80px rgba(160, 75, 100, 0.13);
+}
+
+
+/* =========================
+    COMMON TEXT
+========================= */
+
+.small-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--pink);
+    margin-bottom: 15px;
+}
+
+h1,
+h2 {
+    font-family: "Playfair Display", serif;
+}
+
+h1 {
+    font-size: clamp(42px, 6vw, 65px);
+    line-height: 1.05;
+}
+
+h1 span {
+    color: var(--pink);
+    font-style: italic;
+    display: block;
+}
+
+h2 {
+    font-size: clamp(32px, 5vw, 46px);
+}
+
+.description {
+    color: var(--gray);
+    line-height: 1.7;
+
+    max-width: 500px;
+
+    margin: 20px auto 35px;
+}
+
+
+/* =========================
+    PROPOSAL
+========================= */
+
+.heart-icon {
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 25px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: var(--light-pink);
+
+    color: var(--pink);
+
+    font-size: 30px;
+
+    animation: heartbeat 1.4s infinite;
+}
+
+@keyframes heartbeat {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+.proposal-buttons {
+    position: relative;
+
+    min-height: 65px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 18px;
+}
+
+.yes-btn,
+.no-btn,
+.show-plan-btn,
+.done-btn {
+    border: none;
+    cursor: pointer;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+
+    border-radius: 50px;
+
+    padding: 16px 30px;
+
+    transition: 0.3s;
+}
+
+.yes-btn,
+.show-plan-btn,
+.done-btn {
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        #ef7b9b,
+        #d94f79
+    );
+
+    box-shadow: 0 10px 25px rgba(221, 83, 126, 0.3);
+}
+
+.yes-btn:hover,
+.show-plan-btn:hover,
+.done-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+
+    box-shadow: 0 14px 30px rgba(221, 83, 126, 0.4);
+}
+
+.no-btn {
+    background: #f3eeee;
+    color: #776b70;
+}
+
+.tiny-text {
+    font-size: 12px;
+
+    color: #a99fa2;
+
+    margin-top: 25px;
+}
+
+
+/* =========================
+    SMILE SCREEN
+========================= */
+
+.big-emoji {
+    font-size: 100px;
+
+    animation: smileAnimation 0.8s ease infinite alternate;
+}
+
+@keyframes smileAnimation {
+    from {
+        transform: rotate(-7deg) scale(1);
+    }
+
+    to {
+        transform: rotate(7deg) scale(1.1);
+    }
+}
+
+.smile-card h1 {
+    color: var(--pink);
+    margin: 20px 0 10px;
+}
+
+.smile-card p {
+    font-size: 18px;
+    color: var(--gray);
+}
+
+.floating-hearts {
+    margin-top: 30px;
+
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.floating-hearts span {
+    font-size: 25px;
+
+    animation: floatHeart 1.5s ease-in-out infinite alternate;
+}
+
+.floating-hearts span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.floating-hearts span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.floating-hearts span:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+@keyframes floatHeart {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-15px);
+    }
+}
+
+
+/* =========================
+    SELECTION PAGE
+========================= */
+
+.step {
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    margin: 0 auto 20px;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--light-pink);
+
+    color: var(--pink);
+
+    font-weight: 700;
+}
+
+.time-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+}
+
+.option-btn,
+.color-btn {
+    background: #fff;
+
+    border: 1px solid #eadfe2;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    cursor: pointer;
+
+    font-family: inherit;
+    font-weight: 600;
+
+    color: var(--dark);
+
+    transition: 0.3s;
+}
+
+.option-btn:hover,
+.color-btn:hover {
+    background: var(--light-pink);
+
+    border-color: var(--pink);
+
+    color: var(--pink);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+    PLACE
+========================= */
+
+.place-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.place-btn {
+    text-align: left;
+
+    border: 1px solid #eee3e5;
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 17px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    transition: 0.3s;
+}
+
+.place-btn:hover {
+    transform: translateY(-4px);
+
+    border-color: var(--pink);
+
+    background: var(--light-pink);
+}
+
+.place-btn > span {
+    font-size: 30px;
+}
+
+.place-btn strong {
+    display: block;
+
+    color: var(--dark);
+
+    font-family: "DM Sans", sans-serif;
+
+    margin-bottom: 5px;
+}
+
+.place-btn small {
+    color: #94888c;
+}
+
+
+/* =========================
+    COLOR
+========================= */
+
+.color-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+.color-btn {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    text-align: left;
+}
+
+.color {
+    width: 25px;
+    height: 25px;
+
+    display: inline-block;
+
+    border-radius: 50%;
+
+    border: 2px solid #eee;
+}
+
+.black {
+    background: #202020;
+}
+
+.white {
+    background: #ffffff;
+}
+
+.pink {
+    background: #ff87ad;
+}
+
+.red {
+    background: #e64b4b;
+}
+
+.blue {
+    background: #598bec;
+}
+
+.green {
+    background: #56a76d;
+}
+
+.purple {
+    background: #925cc8;
+}
+
+.yellow {
+    background: #f3cb4d;
+}
+
+
+/* =========================
+    FINAL PAGE
+========================= */
+
+.final-heart {
+    font-size: 80px;
+
+    animation: heartbeat 1.2s infinite;
+}
+
+.final-card h1 {
+    margin: 15px 0;
+}
+
+.final-card > p:not(.small-title) {
+    color: var(--gray);
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+    POPUP
+========================= */
+
+.popup-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(52, 32, 39, 0.55);
+
+    backdrop-filter: blur(10px);
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 100;
+}
+
+.popup-overlay.show {
+    display: flex;
+}
+
+.popup {
+    width: 100%;
+    max-width: 500px;
+
+    background: white;
+
+    border-radius: 30px;
+
+    padding: 40px;
+
+    text-align: center;
+
+    position: relative;
+
+    animation: popupAnimation 0.4s ease;
+}
+
+@keyframes popupAnimation {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+.close-popup {
+    position: absolute;
+
+    top: 15px;
+    right: 20px;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    color: #9c9295;
+
+    font-size: 30px;
+}
+
+.popup-heart {
+    font-size: 55px;
+
+    margin-bottom: 10px;
+}
+
+.popup h2 {
+    margin-bottom: 25px;
+}
+
+.summary {
+    background: #fff7f8;
+
+    padding: 10px 20px;
+
+    border-radius: 20px;
+
+    text-align: left;
+}
+
+.summary-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 15px 5px;
+
+    border-bottom: 1px solid #eedfe3;
+}
+
+.summary-item:last-child {
+    border-bottom: none;
+}
+
+.summary-item > span {
+    font-size: 25px;
+}
+
+.summary-item small {
+    display: block;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    color: #9a8f92;
+
+    margin-bottom: 3px;
+}
+
+.summary-item strong {
+    color: #49383e;
+}
+
+.popup-message {
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    color: var(--gray);
+
+    margin: 25px 0;
+}
+
+
+/* =========================
+    RESPONSIVE
+========================= */
+
+@media (max-width: 650px) {
+
+    .card {
+        padding: 40px 22px;
+
+        border-radius: 25px;
+    }
+
+    h1 {
+        font-size: 42px;
+    }
+
+    h2 {
+        font-size: 34px;
+    }
+
+    .time-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .place-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .proposal-buttons {
+        min-height: 120px;
+    }
+
+    .yes-btn {
+        padding: 15px 22px;
+    }
+
+    .popup {
+        padding: 35px 20px;
+    }
+}
