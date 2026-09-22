@@ -7,9 +7,7 @@
     <title>A Little Question For You 💗</title>
 
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="script.js">
 
-    <!-- Google Font -->
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
         rel="stylesheet"
@@ -18,21 +16,22 @@
 
 <body>
 
-    <div class="background-shape shape1"></div>
-    <div class="background-shape shape2"></div>
+    <div class="blob blob-one"></div>
+    <div class="blob blob-two"></div>
 
     <main class="app">
 
-        <!-- =========================
-            PAGE 1 - DATE PROPOSAL
-        ========================== -->
-        <section class="page active" id="proposalPage">
+        <!-- ================= HOME ================= -->
 
-            <div class="card proposal-card">
+        <section class="page active" id="homePage">
 
-                <div class="heart-icon">♥</div>
+            <div class="card home-card">
 
-                <p class="small-title">I HAVE A QUESTION</p>
+                <div class="heart">♥</div>
+
+                <p class="eyebrow">
+                    A LITTLE QUESTION
+                </p>
 
                 <h1>
                     Will you go on a
@@ -40,11 +39,11 @@
                 </h1>
 
                 <p class="description">
-                    I promise it'll be a lovely day filled with
-                    good food, beautiful places and lots of smiles. 💕
+                    I have something sweet to ask you...
+                    and I hope your answer makes me smile. 💕
                 </p>
 
-                <div class="proposal-buttons">
+                <div class="answer-area">
 
                     <button class="yes-btn" id="yesBtn">
                         Yes, I'd love to 💗
@@ -56,7 +55,7 @@
 
                 </div>
 
-                <p class="tiny-text">
+                <p class="hint">
                     Choose wisely... 👀
                 </p>
 
@@ -65,26 +64,26 @@
         </section>
 
 
-        <!-- =========================
-            PAGE 2 - SMILE
-        ========================== -->
+        <!-- ================= YES PAGE ================= -->
+
         <section class="page" id="smilePage">
 
             <div class="card smile-card">
 
-                <div class="big-emoji">🥰</div>
+                <div class="emoji">
+                    🥰
+                </div>
 
-                <h1>Yayyyy!</h1>
+                <h1>
+                    Yayyyy!
+                </h1>
 
                 <p>
                     I knew you'd say yes! 💕
                 </p>
 
-                <div class="floating-hearts">
-                    <span>💗</span>
-                    <span>💕</span>
-                    <span>💖</span>
-                    <span>💗</span>
+                <div class="hearts">
+                    💗　💕　💖
                 </div>
 
             </div>
@@ -92,38 +91,54 @@
         </section>
 
 
-        <!-- =========================
-            PAGE 3 - TIME
-        ========================== -->
+        <!-- ================= TIME PAGE ================= -->
+
         <section class="page" id="timePage">
 
             <div class="card selection-card">
 
-                <div class="step">01</div>
+                <div class="step">
+                    01
+                </div>
 
-                <p class="small-title">FIRST THINGS FIRST</p>
-
-                <h2>What time works for you?</h2>
-
-                <p class="description">
-                    Pick any time between 10 AM and 10 PM.
+                <p class="eyebrow">
+                    FIRST THINGS FIRST
                 </p>
 
-                <div class="time-grid" id="timeGrid">
+                <h2>
+                    What time works for you?
+                </h2>
 
-                    <button class="option-btn" data-time="10:00 AM">10:00 AM</button>
-                    <button class="option-btn" data-time="11:00 AM">11:00 AM</button>
-                    <button class="option-btn" data-time="12:00 PM">12:00 PM</button>
-                    <button class="option-btn" data-time="01:00 PM">01:00 PM</button>
-                    <button class="option-btn" data-time="02:00 PM">02:00 PM</button>
-                    <button class="option-btn" data-time="03:00 PM">03:00 PM</button>
-                    <button class="option-btn" data-time="04:00 PM">04:00 PM</button>
-                    <button class="option-btn" data-time="05:00 PM">05:00 PM</button>
-                    <button class="option-btn" data-time="06:00 PM">06:00 PM</button>
-                    <button class="option-btn" data-time="07:00 PM">07:00 PM</button>
-                    <button class="option-btn" data-time="08:00 PM">08:00 PM</button>
-                    <button class="option-btn" data-time="09:00 PM">09:00 PM</button>
-                    <button class="option-btn" data-time="10:00 PM">10:00 PM</button>
+                <p class="description">
+                    Choose a time that feels perfect
+                    for our little date.
+                </p>
+
+                <div class="option-grid">
+
+                    <button class="option" data-time="10:00 AM">
+                        10:00 AM
+                    </button>
+
+                    <button class="option" data-time="11:00 AM">
+                        11:00 AM
+                    </button>
+
+                    <button class="option" data-time="03:00 PM">
+                        03:00 PM
+                    </button>
+
+                    <button class="option" data-time="04:00 PM">
+                        04:00 PM
+                    </button>
+
+                    <button class="option" data-time="05:00 PM">
+                        05:00 PM
+                    </button>
+
+                    <button class="option" data-time="06:00 PM">
+                        06:00 PM
+                    </button>
 
                 </div>
 
@@ -132,79 +147,112 @@
         </section>
 
 
-        <!-- =========================
-            PAGE 4 - PLACE
-        ========================== -->
+        <!-- ================= PLACE PAGE ================= -->
+
         <section class="page" id="placePage">
 
             <div class="card selection-card">
 
-                <div class="step">02</div>
+                <div class="step">
+                    02
+                </div>
 
-                <p class="small-title">WHERE SHOULD WE GO?</p>
+                <p class="eyebrow">
+                    WHERE SHOULD WE GO?
+                </p>
 
-                <h2>Choose our date spot 📍</h2>
+                <h2>
+                    Choose our date spot 📍
+                </h2>
 
                 <p class="description">
-                    Pick your favourite place.
+                    Pick the place where you'd like
+                    to spend time together.
                 </p>
 
                 <div class="place-grid">
 
                     <button class="place-btn" data-place="Chiriyakhana">
+
                         <span>🦁</span>
+
                         <div>
                             <strong>Chiriyakhana</strong>
                             <small>A fun little adventure</small>
                         </div>
+
                     </button>
 
+
                     <button class="place-btn" data-place="Chikli">
+
                         <span>🌿</span>
+
                         <div>
                             <strong>Chikli</strong>
                             <small>Peaceful & beautiful</small>
                         </div>
+
                     </button>
 
+
                     <button class="place-btn" data-place="Surovi Uddan">
+
                         <span>🌸</span>
+
                         <div>
                             <strong>Surovi Uddan</strong>
                             <small>Flowers & fresh air</small>
                         </div>
+
                     </button>
 
+
                     <button class="place-btn" data-place="Ghagot">
+
                         <span>🌊</span>
+
                         <div>
                             <strong>Ghagot</strong>
                             <small>Riverside moments</small>
                         </div>
+
                     </button>
 
+
                     <button class="place-btn" data-place="Police Park">
+
                         <span>🌳</span>
+
                         <div>
                             <strong>Police Park</strong>
                             <small>Relax & walk together</small>
                         </div>
+
                     </button>
 
+
                     <button class="place-btn" data-place="RAMC">
+
                         <span>☕</span>
+
                         <div>
                             <strong>RAMC</strong>
                             <small>Good talks & good time</small>
                         </div>
+
                     </button>
 
+
                     <button class="place-btn" data-place="Jomidarbari">
+
                         <span>🏛️</span>
+
                         <div>
                             <strong>Jomidarbari</strong>
                             <small>A beautiful classic place</small>
                         </div>
+
                     </button>
 
                 </div>
@@ -214,62 +262,68 @@
         </section>
 
 
-        <!-- =========================
-            PAGE 5 - DRESS COLOR
-        ========================== -->
+        <!-- ================= DRESS PAGE ================= -->
+
         <section class="page" id="dressPage">
 
             <div class="card selection-card">
 
-                <div class="step">03</div>
+                <div class="step">
+                    03
+                </div>
 
-                <p class="small-title">ONE LAST THING</p>
+                <p class="eyebrow">
+                    ONE LAST THING
+                </p>
 
-                <h2>What color will you wear?</h2>
+                <h2>
+                    What color will you wear?
+                </h2>
 
                 <p class="description">
-                    Let me know your outfit color so I can match the vibe 😌
+                    Tell me your outfit color so I can
+                    match the vibe 😌
                 </p>
 
                 <div class="color-grid">
 
                     <button class="color-btn" data-color="Black">
-                        <span class="color black"></span>
+                        <span class="dot black"></span>
                         Black
                     </button>
 
                     <button class="color-btn" data-color="White">
-                        <span class="color white"></span>
+                        <span class="dot white"></span>
                         White
                     </button>
 
                     <button class="color-btn" data-color="Pink">
-                        <span class="color pink"></span>
+                        <span class="dot pink"></span>
                         Pink
                     </button>
 
                     <button class="color-btn" data-color="Red">
-                        <span class="color red"></span>
+                        <span class="dot red"></span>
                         Red
                     </button>
 
                     <button class="color-btn" data-color="Blue">
-                        <span class="color blue"></span>
+                        <span class="dot blue"></span>
                         Blue
                     </button>
 
                     <button class="color-btn" data-color="Green">
-                        <span class="color green"></span>
+                        <span class="dot green"></span>
                         Green
                     </button>
 
                     <button class="color-btn" data-color="Purple">
-                        <span class="color purple"></span>
+                        <span class="dot purple"></span>
                         Purple
                     </button>
 
                     <button class="color-btn" data-color="Yellow">
-                        <span class="color yellow"></span>
+                        <span class="dot yellow"></span>
                         Yellow
                     </button>
 
@@ -280,24 +334,30 @@
         </section>
 
 
-        <!-- =========================
-            FINAL PAGE
-        ========================== -->
+        <!-- ================= FINAL PAGE ================= -->
+
         <section class="page" id="finalPage">
 
             <div class="card final-card">
 
-                <div class="final-heart">💖</div>
+                <div class="final-icon">
+                    💖
+                </div>
 
-                <p class="small-title">IT'S A DATE!</p>
-
-                <h1>See you there 🥰</h1>
-
-                <p>
-                    Our little date plan is ready.
+                <p class="eyebrow">
+                    IT'S A DATE!
                 </p>
 
-                <button class="show-plan-btn" id="showPlanBtn">
+                <h1>
+                    See you there 🥰
+                </h1>
+
+                <p>
+                    Everything is almost ready.
+                    Let's see our little plan. 💕
+                </p>
+
+                <button class="plan-btn" id="planBtn">
                     See Our Date Plan 💌
                 </button>
 
@@ -305,66 +365,91 @@
 
         </section>
 
-    </main>
 
+        <!-- ================= FULL PLAN PAGE ================= -->
 
-    <!-- =========================
-        CONFIRMATION POPUP
-    ========================== -->
-    <div class="popup-overlay" id="popup">
+        <section class="page" id="planPage">
 
-        <div class="popup">
+            <div class="card plan-card">
 
-            <button class="close-popup" id="closePopup">
-                ×
-            </button>
-
-            <div class="popup-heart">💗</div>
-
-            <p class="small-title">OUR DATE PLAN</p>
-
-            <h2>It's officially a date!</h2>
-
-            <div class="summary">
-
-                <div class="summary-item">
-                    <span>⏰</span>
-                    <div>
-                        <small>TIME</small>
-                        <strong id="selectedTime">--</strong>
-                    </div>
+                <div class="plan-animation">
+                    💌
                 </div>
 
-                <div class="summary-item">
-                    <span>📍</span>
-                    <div>
-                        <small>PLACE</small>
-                        <strong id="selectedPlace">--</strong>
+                <p class="eyebrow">
+                    OUR LITTLE DATE PLAN
+                </p>
+
+                <h1>
+                    It's officially a date! 💗
+                </h1>
+
+                <p class="plan-intro">
+                    So here's the plan we made together...
+                    I hope this day becomes one of our
+                    sweetest memories. ✨
+                </p>
+
+
+                <div class="plan-details">
+
+                    <div class="plan-item">
+
+                        <span>⏰</span>
+
+                        <div>
+                            <small>OUR TIME</small>
+                            <strong id="finalTime">--</strong>
+                        </div>
+
                     </div>
+
+
+                    <div class="plan-item">
+
+                        <span>📍</span>
+
+                        <div>
+                            <small>OUR PLACE</small>
+                            <strong id="finalPlace">--</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="plan-item">
+
+                        <span>👗</span>
+
+                        <div>
+                            <small>DRESS COLOR</small>
+                            <strong id="finalColor">--</strong>
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <div class="summary-item">
-                    <span>👗</span>
-                    <div>
-                        <small>DRESS COLOR</small>
-                        <strong id="selectedColor">--</strong>
-                    </div>
-                </div>
+
+                <p class="love-message">
+                    I'll be waiting for you with a big smile. 🥰
+                    <br>
+                    Let's make some beautiful memories together. 💕
+                </p>
+
+
+                <button
+                    class="understand-btn"
+                    id="understandBtn"
+                >
+                    I Understand 💗
+                </button>
 
             </div>
 
-            <p class="popup-message">
-                Can't wait to spend this beautiful day with you. 💕
-                See you soon!
-            </p>
+        </section>
 
-            <button class="done-btn" id="doneBtn">
-                See you there 💖
-            </button>
-
-        </div>
-
-    </div>
+    </main>
 
 
     <script src="script.js"></script>

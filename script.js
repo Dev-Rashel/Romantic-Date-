@@ -1,5 +1,5 @@
 // =====================================
-// USER SELECTION DATA
+// DATE DATA
 // =====================================
 
 const dateData = {
@@ -10,27 +10,44 @@ const dateData = {
 
 
 // =====================================
-// PAGE ELEMENTS
+// PAGES
 // =====================================
 
-const pages = document.querySelectorAll(".page");
+const pages =
+    document.querySelectorAll(".page");
 
-const proposalPage = document.getElementById("proposalPage");
-const smilePage = document.getElementById("smilePage");
-const timePage = document.getElementById("timePage");
-const placePage = document.getElementById("placePage");
-const dressPage = document.getElementById("dressPage");
-const finalPage = document.getElementById("finalPage");
+const homePage =
+    document.getElementById("homePage");
+
+const smilePage =
+    document.getElementById("smilePage");
+
+const timePage =
+    document.getElementById("timePage");
+
+const placePage =
+    document.getElementById("placePage");
+
+const dressPage =
+    document.getElementById("dressPage");
+
+const finalPage =
+    document.getElementById("finalPage");
+
+const planPage =
+    document.getElementById("planPage");
 
 
 // =====================================
-// FUNCTION TO CHANGE PAGE
+// PAGE CHANGE
 // =====================================
 
 function showPage(page) {
 
-    pages.forEach((singlePage) => {
-        singlePage.classList.remove("active");
+    pages.forEach((item) => {
+
+        item.classList.remove("active");
+
     });
 
     page.classList.add("active");
@@ -46,78 +63,125 @@ function showPage(page) {
 // YES BUTTON
 // =====================================
 
-const yesBtn = document.getElementById("yesBtn");
+const yesBtn =
+    document.getElementById("yesBtn");
+
 
 yesBtn.addEventListener("click", () => {
 
     showPage(smilePage);
 
-    // Smile page will stay for 2 seconds
     setTimeout(() => {
 
         showPage(timePage);
 
-    }, 2000);
+    }, 1800);
 
 });
 
 
 // =====================================
-// RUNAWAY NO BUTTON 😂
+// NO BUTTON
 // =====================================
 
-const noBtn = document.getElementById("noBtn");
+const noBtn =
+    document.getElementById("noBtn");
 
-let noMoveCount = 0;
+const homeCard =
+    document.querySelector(".home-card");
+
+let noCount = 0;
 
 
-// Desktop mouse hover
-noBtn.addEventListener("mouseenter", moveNoButton);
+// Mouse hover
+noBtn.addEventListener(
+    "mouseenter",
+    moveNoButton
+);
 
 
-// Mobile touch
-noBtn.addEventListener("touchstart", (event) => {
+// Click
+noBtn.addEventListener(
+    "click",
+    (event) => {
 
-    event.preventDefault();
+        event.preventDefault();
 
-    moveNoButton();
+        moveNoButton();
 
-});
+    }
+);
 
+
+// =====================================
+// MOVE NO BUTTON
+// WHOLE HOME CARD-এর ভিতরে
+// =====================================
 
 function moveNoButton() {
 
-    noMoveCount++;
+    noCount++;
 
-    const buttonWidth = noBtn.offsetWidth;
-    const buttonHeight = noBtn.offsetHeight;
+
+    const cardWidth =
+        homeCard.clientWidth;
+
+    const cardHeight =
+        homeCard.clientHeight;
+
+
+    const buttonWidth =
+        noBtn.offsetWidth;
+
+    const buttonHeight =
+        noBtn.offsetHeight;
+
+
+    /*
+        Card-এর padding বাদ দিয়ে
+        safe area রাখা হচ্ছে।
+    */
+
+    const padding = 20;
+
 
     const maxX =
-        window.innerWidth -
+        cardWidth -
         buttonWidth -
-        30;
+        padding;
+
 
     const maxY =
-        window.innerHeight -
+        cardHeight -
         buttonHeight -
-        30;
+        padding;
 
 
     const randomX =
-        Math.floor(
-            Math.random() * Math.max(maxX, 100)
+        padding +
+        Math.random() *
+        Math.max(
+            maxX - padding,
+            1
         );
+
 
     const randomY =
-        Math.floor(
-            Math.random() * Math.max(maxY, 100)
+        padding +
+        Math.random() *
+        Math.max(
+            maxY - padding,
+            1
         );
 
 
-    // Make button fixed so it can run
-    // anywhere on the screen
+    /*
+        Button পুরো home-card-এর
+        ভিতরে random জায়গায় যাবে।
+    */
 
-    noBtn.style.position = "fixed";
+    noBtn.style.transform =
+        "none";
 
     noBtn.style.left =
         randomX + "px";
@@ -125,39 +189,38 @@ function moveNoButton() {
     noBtn.style.top =
         randomY + "px";
 
-    noBtn.style.zIndex = "999";
 
+    // Button text change
 
-    // Change text sometimes 😆
+    if (noCount === 2) {
 
-    if (noMoveCount === 2) {
-        noBtn.innerText = "Are you sure? 👀";
+        noBtn.innerText =
+            "Really? 👀";
+
     }
 
-    else if (noMoveCount === 4) {
-        noBtn.innerText = "Think again 😌";
+    else if (noCount === 4) {
+
+        noBtn.innerText =
+            "Think again 😌";
+
     }
 
-    else if (noMoveCount === 6) {
-        noBtn.innerText = "You can't catch me 😂";
+    else if (noCount === 6) {
+
+        noBtn.innerText =
+            "Nope 😂";
+
     }
 
-    else if (noMoveCount === 8) {
-        noBtn.innerText = "Just press YES 💗";
+    else if (noCount === 8) {
+
+        noBtn.innerText =
+            "Just say YES 💗";
+
     }
 
 }
-
-
-// Prevent accidental click on NO
-
-noBtn.addEventListener("click", (event) => {
-
-    event.preventDefault();
-
-    moveNoButton();
-
-});
 
 
 // =====================================
@@ -165,25 +228,24 @@ noBtn.addEventListener("click", (event) => {
 // =====================================
 
 const timeButtons =
-    document.querySelectorAll("[data-time]");
+    document.querySelectorAll(
+        "[data-time]"
+    );
 
 
 timeButtons.forEach((button) => {
 
-    button.addEventListener("click", () => {
+    button.addEventListener(
+        "click",
+        () => {
 
-        const selectedTime =
-            button.dataset.time;
+            dateData.time =
+                button.dataset.time;
 
-        dateData.time =
-            selectedTime;
+            showPage(placePage);
 
-
-        // Go to place page
-
-        showPage(placePage);
-
-    });
+        }
+    );
 
 });
 
@@ -193,25 +255,24 @@ timeButtons.forEach((button) => {
 // =====================================
 
 const placeButtons =
-    document.querySelectorAll("[data-place]");
+    document.querySelectorAll(
+        "[data-place]"
+    );
 
 
 placeButtons.forEach((button) => {
 
-    button.addEventListener("click", () => {
+    button.addEventListener(
+        "click",
+        () => {
 
-        const selectedPlace =
-            button.dataset.place;
+            dateData.place =
+                button.dataset.place;
 
-        dateData.place =
-            selectedPlace;
+            showPage(dressPage);
 
-
-        // Go to dress page
-
-        showPage(dressPage);
-
-    });
+        }
+    );
 
 });
 
@@ -221,101 +282,101 @@ placeButtons.forEach((button) => {
 // =====================================
 
 const colorButtons =
-    document.querySelectorAll("[data-color]");
+    document.querySelectorAll(
+        "[data-color]"
+    );
 
 
 colorButtons.forEach((button) => {
 
-    button.addEventListener("click", () => {
+    button.addEventListener(
+        "click",
+        () => {
 
-        const selectedColor =
-            button.dataset.color;
+            dateData.color =
+                button.dataset.color;
 
-        dateData.color =
-            selectedColor;
+            showPage(finalPage);
 
-
-        // Show final page
-
-        showPage(finalPage);
-
-    });
+        }
+    );
 
 });
 
 
 // =====================================
-// POPUP
+// DATE PLAN
 // =====================================
 
-const popup =
-    document.getElementById("popup");
-
-const showPlanBtn =
-    document.getElementById("showPlanBtn");
-
-const closePopup =
-    document.getElementById("closePopup");
-
-const doneBtn =
-    document.getElementById("doneBtn");
+const planBtn =
+    document.getElementById("planBtn");
 
 
-// Popup information
+const finalTime =
+    document.getElementById("finalTime");
 
-const selectedTimeText =
-    document.getElementById("selectedTime");
+const finalPlace =
+    document.getElementById("finalPlace");
 
-const selectedPlaceText =
-    document.getElementById("selectedPlace");
-
-const selectedColorText =
-    document.getElementById("selectedColor");
+const finalColor =
+    document.getElementById("finalColor");
 
 
-// Show popup
+planBtn.addEventListener(
+    "click",
+    () => {
 
-showPlanBtn.addEventListener("click", () => {
+        finalTime.innerText =
+            dateData.time;
 
-    selectedTimeText.innerText =
-        dateData.time;
+        finalPlace.innerText =
+            dateData.place;
 
-    selectedPlaceText.innerText =
-        dateData.place;
-
-    selectedColorText.innerText =
-        dateData.color;
-
-
-    popup.classList.add("show");
-
-});
+        finalColor.innerText =
+            dateData.color;
 
 
-// Close popup
-
-closePopup.addEventListener("click", () => {
-
-    popup.classList.remove("show");
-
-});
-
-
-doneBtn.addEventListener("click", () => {
-
-    popup.classList.remove("show");
-
-});
-
-
-// Click outside popup to close
-
-popup.addEventListener("click", (event) => {
-
-    if (event.target === popup) {
-
-        popup.classList.remove("show");
+        // Directly full plan
+        showPage(planPage);
 
     }
+);
 
-});
+
+// =====================================
+// I UNDERSTAND
+// =====================================
+
+const understandBtn =
+    document.getElementById(
+        "understandBtn"
+    );
+
+
+understandBtn.addEventListener(
+    "click",
+    () => {
+
+        // আবার Home page
+        showPage(homePage);
+
+
+        // Data reset
+        dateData.time = "";
+        dateData.place = "";
+        dateData.color = "";
+
+
+        // No button আবার আগের জায়গায়
+        noBtn.style.left = "50%";
+        noBtn.style.top = "50%";
+        noBtn.style.transform =
+            "translate(-50%, -50%)";
+
+
+        noBtn.innerText = "No";
+
+        noCount = 0;
+
+    }
+);
